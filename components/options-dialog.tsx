@@ -62,10 +62,10 @@ export default function OptionsDialog({ open, onOpenChange, options, onOptionsCh
             <div className="space-y-2">
               <Label className="font-mono tracking-normal">Quality</Label>
               <Select value={localOptions.quality} onValueChange={(value) => handleChange("quality", value)}>
-                <SelectTrigger className="bg-card-background border-border-color tracking-normal">
+                <SelectTrigger className="bg-background border tracking-normal">
                   <SelectValue placeholder="Select quality" />
                 </SelectTrigger>
-                <SelectContent className="bg-card-background border-border-color">
+                <SelectContent className="bg-card border">
                   <SelectItem value="high" className="tracking-normal hover:bg-[#111111] focus:bg-[#111111]">
                     High (50k)
                   </SelectItem>
@@ -88,10 +88,10 @@ export default function OptionsDialog({ open, onOpenChange, options, onOptionsCh
                 value={localOptions.geometry_file_format}
                 onValueChange={(value) => handleChange("geometry_file_format", value)}
               >
-                <SelectTrigger className="bg-card-background border-border-color tracking-normal">
+                <SelectTrigger className="bg-card border tracking-normal">
                   <SelectValue placeholder="Select format" />
                 </SelectTrigger>
-                <SelectContent className="bg-card-background border-border-color">
+                <SelectContent className="bg-card border">
                   <SelectItem value="glb" className="tracking-normal hover:bg-[#111111] focus:bg-[#111111]">
                     GLB
                   </SelectItem>
@@ -113,7 +113,7 @@ export default function OptionsDialog({ open, onOpenChange, options, onOptionsCh
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm border-border-color bg-card-background">
+            <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm border bg-card">
               <div>
                 <Label className="font-mono tracking-normal">Use Hyper</Label>
                 <p className="text-gray-400 text-xs tracking-normal">Better details</p>
@@ -124,7 +124,7 @@ export default function OptionsDialog({ open, onOpenChange, options, onOptionsCh
               />
             </div>
 
-            <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm border-border-color bg-card-background">
+            <div className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm border bg-card">
               <div>
                 <Label className="font-mono tracking-normal">T/A Pose</Label>
                 <p className="text-gray-400 text-xs tracking-normal">For humans</p>
@@ -208,7 +208,7 @@ export default function OptionsDialog({ open, onOpenChange, options, onOptionsCh
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="bg-card-background border-border-color text-foreground max-w-md">
+        <DialogContent className="bg-card border text-foreground max-w-md">
           <DialogHeader>
             <DialogTitle className="text-xl font-mono tracking-normal">Options</DialogTitle>
           </DialogHeader>
@@ -220,7 +220,7 @@ export default function OptionsDialog({ open, onOpenChange, options, onOptionsCh
 
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerContent className="bg-card-background border-t border-border-color text-foreground">
+      <DrawerContent className="bg-card border-t border text-foreground">
         <div className="mx-auto w-full max-w-md">
           <DrawerHeader>
             <DrawerTitle className="text-xl font-mono tracking-normal">Options</DrawerTitle>

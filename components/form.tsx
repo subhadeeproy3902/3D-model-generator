@@ -171,7 +171,7 @@ export default function Form({ isLoading, onSubmit, onOpenOptions }: FormProps) 
                   accept="image/*"
                   multiple
                   onChange={handleImageChange}
-                  className="hidden"
+                  className="hidden bg-transparent"
                   disabled={isLoading}
                 />
                 <Button

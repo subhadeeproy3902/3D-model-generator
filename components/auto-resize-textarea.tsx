@@ -60,7 +60,7 @@ const AutoResizeTextarea = React.forwardRef<HTMLTextAreaElement, AutoResizeTexta
         ref={setRefs}
         onChange={handleInput}
         className={cn(
-          "overflow-hidden min-h-[40px] focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none border-0 shadow-none",
+          "overflow-hidden bg-transparent min-h-[40px] focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none border-0 shadow-none",
           className,
         )}
         rows={1}
