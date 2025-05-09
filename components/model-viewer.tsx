@@ -9,7 +9,7 @@ import LoadingPlaceholder from "./loading-placeholder"
 
 export default function ModelViewer({ modelUrl }: { modelUrl: string | null }) {
   return (
-    <div className="w-full h-[100dvh] bg-black bg-radial-gradient">
+    <div className="w-full h-[100dvh]" style={{ background: 'var(--canvas-background)' }}>
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <SceneSetup />
         <ambientLight intensity={0.3} />

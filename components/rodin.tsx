@@ -8,8 +8,10 @@ import ModelViewer from "./model-viewer"
 import Form from "./form"
 import StatusIndicator from "./status-indicator"
 import OptionsDialog from "./options-dialog"
+import ThemeToggle from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 import { useMediaQuery } from "@/hooks/use-media-query"
+import { useTheme } from "@/contexts/theme-context"
 
 export default function Rodin() {
   const [isLoading, setIsLoading] = useState(false)
@@ -22,6 +24,7 @@ export default function Rodin() {
   const [showOptions, setShowOptions] = useState(false)
   const [showPromptContainer, setShowPromptContainer] = useState(true)
   const isMobile = useMediaQuery("(max-width: 768px)")
+  const { theme } = useTheme()
   const [options, setOptions] = useState({
     condition_mode: "concat" as const,
     quality: "medium" as const,
@@ -186,7 +189,7 @@ export default function Rodin() {
         href="https://hyper3d.ai"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center text-white hover:text-gray-300 transition-colors tracking-normal"
+        className="flex items-center transition-colors tracking-normal"
       >
         <span className="mr-1">Website</span>
         <ExternalLink className="h-4 w-4" />
@@ -195,7 +198,7 @@ export default function Rodin() {
         href="https://developer.hyper3d.ai"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center text-white hover:text-gray-300 transition-colors tracking-normal"
+        className="flex items-center transition-colors tracking-normal"
       >
         <span className="mr-1">API Docs</span>
         <ExternalLink className="h-4 w-4" />
@@ -214,12 +217,13 @@ export default function Rodin() {
       <div className="absolute inset-0 z-10 pointer-events-none">
         {/* Logo in top left */}
         <div className="absolute top-6 left-6 pointer-events-auto">
-          <h1 className="text-3xl text-white font-normal tracking-normal">3D Model Generator</h1>
+          <h1 className="text-3xl font-normal tracking-normal">3D Model Generator</h1>
         </div>
 
         {/* Links in top right - desktop only */}
         {!isMobile && (
-          <div className="absolute top-6 right-6 pointer-events-auto">
+          <div className="absolute top-6 right-6 pointer-events-auto flex items-center space-x-4">
+            <ThemeToggle />
             <ExternalLinks />
           </div>
         )}
@@ -229,7 +233,7 @@ export default function Rodin() {
 
         {/* Error message */}
         {error && (
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-gray-900/80 text-white px-4 py-2 rounded-md tracking-normal">
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-md tracking-normal">
             {error}
           </div>
         )}
@@ -239,7 +243,8 @@ export default function Rodin() {
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 pointer-events-auto">
             <Button
               onClick={handleBack}
-              className="bg-black hover:bg-gray-900 text-white border border-white/20 rounded-full px-4 py-2 flex items-center gap-2"
+              variant="secondary"
+              className="border rounded-full px-4 py-2 flex items-center gap-2"
             >
               <ArrowLeft className="h-4 w-4" />
               <span className="tracking-normal">Back</span>
@@ -247,7 +252,7 @@ export default function Rodin() {
 
             <Button
               onClick={handleDownload}
-              className="bg-white hover:bg-gray-200 text-black rounded-full px-4 py-2 flex items-center gap-2"
+              className="rounded-full px-4 py-2 flex items-center gap-2"
             >
               <Download className="h-4 w-4" />
               <span className="tracking-normal">Download</span>
@@ -262,7 +267,8 @@ export default function Rodin() {
 
             {/* Links below prompt on mobile */}
             {isMobile && (
-              <div className="mt-4 flex justify-center pointer-events-auto">
+              <div className="mt-4 flex justify-center items-center space-x-4 pointer-events-auto">
+                <ThemeToggle />
                 <ExternalLinks />
               </div>
             )}

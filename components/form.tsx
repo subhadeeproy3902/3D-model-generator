@@ -150,7 +150,7 @@ export default function Form({ isLoading, onSubmit, onOpenOptions }: FormProps) 
         <div
           ref={dropAreaRef}
           className={cn(
-            "relative bg-black/60 backdrop-blur-md rounded-[24px] overflow-hidden transition-all shadow-lg border border-[rgba(255,255,255,0.12)]",
+            "relative bg-neutral-800 backdrop-blur-md rounded-[24px] overflow-hidden transition-all shadow-lg border border-[rgba(255,255,255,0.12)]",
             isDragging ? "ring-2 ring-white" : isFocused ? "ring-2 ring-white" : "",
             isLoading && "animate-pulse-loading pointer-events-none opacity-70",
           )}
@@ -179,10 +179,10 @@ export default function Form({ isLoading, onSubmit, onOpenOptions }: FormProps) 
                   variant="ghost"
                   size="icon"
                   onClick={triggerFileInput}
-                  className="text-gray-400 hover:text-white hover:bg-transparent rounded-full h-10 w-10 ml-0"
+                  className="hover:bg-transparent rounded-full h-10 w-10 ml-0"
                   disabled={isLoading}
                 >
-                  <ImageIcon className="h-5 w-5" />
+                  <ImageIcon className="h-5 w-5 text-white" />
                 </Button>
 
                 <Button
@@ -190,16 +190,16 @@ export default function Form({ isLoading, onSubmit, onOpenOptions }: FormProps) 
                   variant="ghost"
                   size="icon"
                   onClick={onOpenOptions}
-                  className="text-gray-400 hover:text-white hover:bg-transparent rounded-full h-10 w-10 ml-0"
+                  className="hover:bg-transparent rounded-full h-10 w-10 ml-0"
                   disabled={isLoading}
                 >
-                  <SlidersHorizontal className="h-5 w-5" />
+                  <SlidersHorizontal className="h-5 w-5 text-white" />
                 </Button>
               </div>
 
               <AutoResizeTextarea
                 placeholder="Generate 3D model..."
-                className="flex-1 bg-transparent border-0 focus:ring-0 text-white placeholder:text-gray-400 py-2 px-3 resize-none text-base tracking-normal"
+                className="flex-1 bg-transparent border-0 focus:ring-0 placeholder:text-gray-200 py-2 px-3 resize-none text-base tracking-normal text-white"
                 {...form.register("prompt")}
                 onFocus={handleFocus}
                 onBlur={handleBlur}

@@ -24,7 +24,7 @@ export default function ImageUploadArea({ previewUrls, onRemoveImage, isLoading 
           />
           {!isLoading && (
             <button type="button" onClick={() => onRemoveImage(index)} className="absolute -top-1 -right-1">
-              <X className="h-3 w-3 text-white" />
+              <X className="h-3 w-3" />
             </button>
           )}
         </div>
