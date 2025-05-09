@@ -33,7 +33,7 @@ export default function Form({ isLoading, onSubmit, onOpenOptions }: FormProps) 
   const isMobile = useMediaQuery("(max-width: 768px)")
 
   const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema) as any,
     defaultValues: {
       prompt: "",
       images: [],
@@ -231,3 +231,4 @@ export default function Form({ isLoading, onSubmit, onOpenOptions }: FormProps) 
     </UIForm>
   )
 }
+
